@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Пределы функций · Race Limits</title>
+  <link rel="stylesheet" href="style.css">
+    <script>
+    window.MathJax = {
+      tex: {inlineMath: [['\\(', '\\)'], ['$', '$']], displayMath: [['\\[', '\\]']]},
+      svg: {fontCache: 'global'}
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="data.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="badge">RACE</span> Пределы</a>
+  <nav>
+    <a href="index.html" aria-current="page">Старт</a>
+    <a href="theory.html">Теория</a>
+    <a href="examples.html">Эталонные задачи</a>
+    <a href="trainer.html">Тренажер</a>
+    <a href="sheet.html">Шпаргалка</a>
+  </nav>
+</header>
+<main>
+<section class="hero grid2">
+  <div>
+    <p class="eyebrow">10 класс · 10.3А</p>
+    <h1>Предел функции и непрерывность</h1>
+    <p class="lead">Тема сделана как гоночная трасса: сначала стартовая теория, затем повороты с типовыми задачами, потом тренажер по уровням и финишная шпаргалка.</p>
+    <div class="cta"><a class="button primary" href="theory.html">Начать с теории</a><a class="button" href="trainer.html">Открыть тренажер</a></div>
+  </div>
+  <div class="race-card">
+    <div class="track"><span class="car red">🏎️</span><span class="car blue">🏁</span></div>
+    <h2>Маршрут раздела</h2>
+    <ol class="route">
+      <li><b>91–92.</b> Предел функции в точке и на бесконечности.</li>
+      <li><b>93–94.</b> Первый замечательный предел.</li>
+      <li><b>95–98.</b> Непрерывность и односторонние пределы.</li>
+      <li><b>99–102.</b> Асимптоты графика функции.</li>
+    </ol>
+  </div>
+</section>
+<section>
+  <h2>Цели обучения простыми словами</h2>
+  <div class="cards">
+    <article class="card"><h3>10.5.1.8</h3><p>Уметь вычислять пределы функций в точке и на бесконечности.</p><p class="src">Задач в тренажере: <b data-goal-count="10.5.1.8">60</b> · № 11153–11195, 11201–11214</p></article>
+    <article class="card"><h3>10.5.1.9</h3><p>Уметь применять первый замечательный предел.</p><p class="src">Задач в тренажере: <b data-goal-count="10.5.1.9">10</b> · № 11196–11200</p></article>
+    <article class="card"><h3>10.5.1.10</h3><p>Уметь находить левый и правый пределы.</p><p class="src">Задач в тренажере: <b data-goal-count="10.5.1.10">12</b> · функции № 11162, 11835–11840</p></article>
+    <article class="card"><h3>10.5.1.11</h3><p>Уметь исследовать график функции на наличие асимптот.</p><p class="src">Задач в тренажере: <b data-goal-count="10.5.1.11">13</b> · функции № 11827–11841</p></article>
+  </div>
+</section>
+<section class="pitstop">
+  <h2>Главная идея</h2>
+  <p>Предел отвечает не на вопрос «чему равна функция в точке», а на вопрос «к какому числу стремятся значения функции, когда x подъезжает к точке». Поэтому предел может существовать даже тогда, когда значение функции в самой точке другое или вообще не определено.</p>
+</section>
+<section>
+  <h2>Откуда задачи</h2>
+  <div class="card">
+    <p>Все <b data-total-count>95</b> задач тренажера и эталонные примеры взяты из сборника <b>Шаметова «Математика» (12000 задач)</b>:</p>
+    <ul>
+      <li><b>гл. 11, §72</b>, № 11153–11214 — пределы в точке, на бесконечности, первый замечательный предел;</li>
+      <li><b>гл. 12, §75.5</b>, № 11827–11841 — функции, по которым поставлены вопросы об односторонних пределах, непрерывности и асимптотах.</li>
+    </ul>
+    <p>В пособиях Рустюмовой (ЕНТ/ҰБТ) раздела о пределах нет, поэтому задачи оттуда не использованы.</p>
+  </div>
+</section>
+</main>
+<footer>Race Limits · учебный сайт по математике</footer>
+</body>
+</html>

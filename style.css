@@ -1,0 +1,45 @@
+:root{--ink:#151820;--asphalt:#20242d;--paper:#fff9ef;--card:#fffdf8;--red:#c62828;--blue:#1f4e79;--yellow:#f1c232;--line:#e4d6bd;--green:#2e7d32}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top right,#fff1cd 0,#fff9ef 32%,#f4efe5 100%);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}.topbar{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:linear-gradient(90deg,#141820,#2a303b);color:white;padding:12px max(16px,4vw);box-shadow:0 4px 18px #0004}.brand{color:white;text-decoration:none;font-weight:900;letter-spacing:.02em}.badge{display:inline-block;background:var(--red);color:white;border:2px solid white;border-radius:999px;padding:2px 8px;margin-right:6px}nav{display:flex;gap:8px;flex-wrap:wrap}nav a{color:white;text-decoration:none;padding:8px 10px;border-radius:999px;background:#ffffff12;font-size:.92rem}nav a[aria-current=page],nav a:hover{background:var(--yellow);color:#151820}main{max-width:1120px;margin:auto;padding:0 16px 64px}section{padding-top:42px}.hero{min-height:70vh;align-items:center}.grid2{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);gap:24px}.eyebrow{text-transform:uppercase;letter-spacing:.12em;color:var(--red);font-weight:900;font-size:.82rem}h1{font-size:clamp(38px,8vw,80px);line-height:.95;margin:0 0 16px;letter-spacing:-.06em}h2{font-size:clamp(24px,4vw,38px);line-height:1.1;margin:0 0 12px}h3{margin:0 0 8px}.lead{font-size:clamp(18px,2.4vw,23px);max-width:68ch}.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.button,button{border:0;border-radius:999px;padding:12px 18px;background:var(--asphalt);color:white;font-weight:800;text-decoration:none;cursor:pointer}.button.primary,button:hover{background:var(--red)}.race-card,.card,.formula-card,.quiz-card,.pitstop{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(16px,2.5vw,28px);box-shadow:0 8px 24px #44290012}.track{height:130px;border-radius:80px;background:repeating-linear-gradient(90deg,#333 0 44px,#292929 44px 88px);position:relative;overflow:hidden;border:8px solid #111}.track:before{content:"";position:absolute;left:0;right:0;top:50%;border-top:4px dashed #fff8}.car{position:absolute;font-size:42px;top:40px}.car.red{left:12%}.car.blue{right:12%}.route{padding-left:20px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px}.card h3{color:var(--blue)}.pitstop{border-left:10px solid var(--red);font-size:1.1rem}.definition{border-left:10px solid var(--blue)}.warn{background:#fff1b6;border-left:6px solid var(--yellow);padding:12px;border-radius:10px}.math,.equation{font-family:Georgia,'Times New Roman',serif}.equation{background:#f4f6fb;border:1px solid #dfe5ef;border-radius:14px;padding:14px;margin:10px 0;font-size:1.25rem;overflow:auto;user-select:text}.equation.big{font-size:clamp(24px,5vw,40px)}.bigcanvas{width:100%;height:360px;background:white;border:1px solid var(--line);border-radius:18px}.slider{display:block;background:white;border-radius:14px;padding:12px;margin:12px 0}.slider input{width:100%;accent-color:var(--red)}.result{background:#f2f5fb;border-radius:12px;padding:12px;font-weight:700}.examples{display:grid;gap:16px}.example{border-left:10px solid var(--red)}details{background:#f9f4e9;border-radius:12px;padding:10px;margin-top:8px}summary{cursor:pointer;font-weight:800;color:var(--blue)}.trainer-controls{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}.trainer-controls select,input{font:inherit;border:1px solid var(--line);border-radius:12px;padding:12px;background:white}.quiz-card input{width:100%;margin:12px 0}.lap{display:inline-block;background:var(--yellow);font-weight:900;border-radius:999px;padding:6px 12px;margin-bottom:10px}.formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}.formula-card .tag{display:inline-block;background:#ecf1fb;color:var(--blue);border-radius:999px;padding:4px 9px;font-size:.8rem;font-weight:900}.formula-card button{padding:8px 12px;font-size:.85rem;margin-top:8px;background:var(--blue)}footer{text-align:center;color:#606775;padding:30px 16px}.green{color:var(--green)}.redtext{color:var(--red)}@media(max-width:720px){.topbar{display:block}.topbar nav{display:grid;grid-template-columns:1fr 1fr;margin-top:10px}.topbar nav a{border-radius:12px;text-align:center}.grid2{grid-template-columns:1fr}section{padding-top:28px}.hero{min-height:auto}h1{font-size:clamp(34px,12vw,56px)}.track{height:100px}.bigcanvas{height:280px}.trainer-controls{display:grid}.trainer-controls select,.trainer-controls button{width:100%}}
+
+/* MathJax / LaTeX readability */
+.equation{overflow-x:auto;overflow-y:hidden}
+.equation mjx-container{font-size:112%;max-width:100%;overflow-x:auto;overflow-y:hidden;padding:.15rem 0}
+.formula-card mjx-container{font-size:112%}
+.quiz-card .big mjx-container{font-size:125%}
+mjx-container{outline:none}
+
+/* Тренажер и задачи */
+.task-q{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:1rem;margin:0 0 6px;line-height:1.45}
+.task-meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.85rem;margin:6px 0}
+.tag{display:inline-block;background:#ecf1fb;color:var(--blue);border-radius:999px;padding:4px 9px;font-size:.8rem;font-weight:900}
+.src{color:#606775;font-size:.85rem}
+.score{float:right;font-weight:800;color:var(--blue)}
+.result.ok{background:#e6f4e7;color:var(--green)}
+.result.bad{background:#fdeaea;color:var(--red)}
+.quiz-card button#check{margin-bottom:8px}
+.how-to{margin-top:16px}
+.how-to code{background:#f4f6fb;border-radius:6px;padding:1px 6px}
+.example h3{font-size:1.1rem;line-height:1.35}
+.example h3 mjx-container{font-size:105%}
+.formula-card h3{margin-top:8px}
+section.cta{padding-top:24px}
+/* длинные формулы на телефоне прокручиваются, а не обрезаются */
+mjx-container[display="true"]{display:block;max-width:100%;overflow-x:auto;overflow-y:hidden;padding:.2rem 0}
+details p{overflow-wrap:anywhere}
+.examples{grid-template-columns:minmax(0,1fr)}
+.card,.formula-card,.quiz-card{min-width:0}
+
+/* объяснения с графиками */
+.explain{margin-top:22px;align-items:center}
+.explain h3{color:var(--blue)}
+.values{border-collapse:collapse;width:100%;background:white;border-radius:12px;overflow:hidden;margin-top:8px}
+.values th,.values td{border:1px solid var(--line);padding:6px 8px;text-align:center}
+.values th{background:#f4f6fb}
+.asy-title{margin-top:24px}
+.asy-buttons{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.asy-buttons button{background:#fff;color:var(--ink);border:2px solid var(--line);padding:8px 12px}
+.asy-buttons button.on{background:var(--yellow);border-color:var(--yellow)}
+.asy-explain p{margin:.4em 0}
+.bigcanvas.tall{height:420px}
+@media(max-width:720px){.bigcanvas.tall{height:340px}}
+
+.grid2>*{min-width:0}

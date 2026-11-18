@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Тренажер · Пределы</title><link rel="stylesheet" href="style.css">
+  <script>
+    window.MathJax = {
+      tex: {inlineMath: [['\\(', '\\)'], ['$', '$']], displayMath: [['\\[', '\\]']]},
+      svg: {fontCache: 'global'}
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="data.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="index.html"><span class="badge">RACE</span> Пределы</a><nav><a href="index.html">Старт</a><a href="theory.html">Теория</a><a href="examples.html">Эталонные задачи</a><a href="trainer.html" aria-current="page">Тренажер</a><a href="sheet.html">Шпаргалка</a></nav></header>
+<main>
+<section>
+  <p class="eyebrow">Pit lane</p>
+  <h1>Тренажер пределов</h1>
+  <p>Выбери уровень или тему. Сначала реши сам, потом нажми «Проверить». Все задачи взяты из сборника Шаметова: номер указан под условием.</p>
+  <div class="trainer-controls">
+    <select id="mode" aria-label="Режим тренажера">
+      <option value="easy">Легкий уровень</option>
+      <option value="medium">Средний уровень</option>
+      <option value="hard">Сложный уровень</option>
+      <option value="mixed">Смешанный заезд</option>
+      <option value="point">Тема: предел в точке</option>
+      <option value="infinity">Тема: предел на бесконечности</option>
+      <option value="remarkable">Тема: первый замечательный предел</option>
+      <option value="one-sided">Тема: односторонние пределы</option>
+      <option value="continuity">Тема: непрерывность</option>
+      <option value="asymptote">Тема: асимптоты</option>
+    </select>
+    <button id="new-task" type="button">Новая задача</button>
+  </div>
+  <div class="quiz-card">
+    <div class="lap">Задача</div> <span id="score" class="score">Круги: 0 из 0</span>
+    <div id="task" class="equation big"></div>
+    <p id="task-meta" class="task-meta"></p>
+    <input id="answer" autocomplete="off" placeholder="Ответ: 3, -2, 1/2, +inf, -inf, не существует, -1; 1, y=x-1">
+    <button id="check" type="button">Проверить</button>
+    <p id="feedback" class="result"></p>
+    <details><summary>Показать подсказку</summary><p id="hint"></p></details>
+    <details><summary>Показать решение</summary><p id="solution"></p></details>
+  </div>
+  <div class="card how-to">
+    <h3>Как вводить ответ</h3>
+    <ul>
+      <li>Дроби: <code>1/2</code>, <code>-3/2</code> или десятичные <code>0,5</code>.</li>
+      <li>Бесконечность: <code>+inf</code>, <code>-inf</code> или <code>∞</code>, <code>-∞</code>.</li>
+      <li>Если предела или асимптоты нет: <code>не существует</code> или <code>нет</code>.</li>
+      <li>Несколько асимптот: через точку с запятой, например <code>-1; 1</code>.</li>
+      <li>Наклонная асимптота: <code>y=x-1</code> или <code>1; -1</code> (сначала \(k\), потом \(b\)).</li>
+    </ul>
+  </div>
+</section>
+</main>
+<footer>Уровни: легкий → средний → сложный → смешанный.</footer>
+</body>
+</html>

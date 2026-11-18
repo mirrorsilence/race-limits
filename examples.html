@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Эталонные задачи · Пределы</title><link rel="stylesheet" href="style.css">
+  <script>
+    window.MathJax = {
+      tex: {inlineMath: [['\\(', '\\)'], ['$', '$']], displayMath: [['\\[', '\\]']]},
+      svg: {fontCache: 'global'}
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="index.html"><span class="badge">RACE</span> Пределы</a><nav><a href="index.html">Старт</a><a href="theory.html">Теория</a><a href="examples.html" aria-current="page">Эталонные задачи</a><a href="trainer.html">Тренажер</a><a href="sheet.html">Шпаргалка</a></nav></header>
+<main>
+<section>
+  <p class="eyebrow">Повороты трассы</p>
+  <h1>Эталонные задачи</h1>
+  <p class="lead">Это типы задач, которые чаще всего встречаются в разделе: подстановка, сокращение неопределённости, предел на бесконечности, первый замечательный предел, односторонний предел, непрерывность и асимптоты.</p>
+  <p class="warn">Все задачи — из сборника Шаметова «Математика» (12000 задач): гл. 11, §72 и гл. 12, §75.5. Для асимптот, односторонних пределов и непрерывности взята функция из книги, а вопрос поставлен под цель обучения.</p>
+</section>
+
+<section class="examples">
+
+<article class="card example">
+  <p class="task-meta"><span class="tag">Поворот 1 · Подстановка</span> <span class="tag">Цель 10.5.1.8</span> <span class="src">Шаметов, §72, № 11159</span></p>
+  <h3>Вычислите предел</h3>
+  <div class="equation">\[\lim_{x\to1}\frac{2x-1}{x^2}\]</div>
+  <p><b>Как распознать:</b> при \(x=1\) знаменатель не равен нулю, и неопределённости нет.</p>
+  <details><summary>Решение</summary>
+    <p>Функция непрерывна в точке \(x=1\), поэтому предел равен значению функции:</p>
+    <div class="equation">\[\lim_{x\to1}\frac{2x-1}{x^2}=\frac{2\cdot1-1}{1^2}=1.\]</div>
+    <p><b>Ответ:</b> \(1\).</p>
+  </details>
+</article>
+
+<article class="card example">
+  <p class="task-meta"><span class="tag">Поворот 2 · 0/0, разложение</span> <span class="tag">Цель 10.5.1.8</span> <span class="src">Шаметов, §72, № 11170</span></p>
+  <h3>Вычислите предел</h3>
+  <div class="equation">\[\lim_{x\to2}\frac{x^2-5x+6}{x^2-12x+20}\]</div>
+  <p><b>Как распознать:</b> подстановка даёт \(\frac{0}{0}\), значит, \(x-2\) — общий множитель.</p>
+  <details><summary>Решение</summary>
+    <p>Раскладываем трёхчлены по формуле \(ax^2+bx+c=a(x-x_1)(x-x_2)\):</p>
+    <div class="equation">\[x^2-5x+6=(x-2)(x-3),\qquad x^2-12x+20=(x-2)(x-10).\]</div>
+    <p>Сокращаем на \(x-2\ne0\) и подставляем:</p>
+    <div class="equation">\[\lim_{x\to2}\frac{(x-2)(x-3)}{(x-2)(x-10)}=\lim_{x\to2}\frac{x-3}{x-10}=\frac{-1}{-8}=\frac18.\]</div>
+    <p><b>Ответ:</b> \(\frac18\).</p>
+  </details>
+</article>
+
+<article class="card example">
+  <p class="task-meta"><span class="tag">Поворот 3 · 0/0, кубы</span> <span class="tag">Цель 10.5.1.8</span> <span class="src">Шаметов, §72, № 11180</span></p>
+  <h3>Вычислите предел</h3>
+  <div class="equation">\[\lim_{x\to2}\frac{x^3-8}{x^2+x-6}\]</div>
+  <p><b>Как распознать:</b> \(\frac{0}{0}\) и куб в числителе — нужна формула разности кубов.</p>
+  <details><summary>Решение</summary>
+    <div class="equation">\[x^3-8=(x-2)(x^2+2x+4),\qquad x^2+x-6=(x-2)(x+3).\]</div>
+    <div class="equation">\[\lim_{x\to2}\frac{x^2+2x+4}{x+3}=\frac{4+4+4}{5}=\frac{12}{5}.\]</div>
+    <p><b>Ответ:</b> \(\frac{12}{5}\).</p>
+  </details>
+</article>
+
+<article class="card example">
+  <p class="task-meta"><span class="tag">Поворот 4 · ∞/∞</span> <span class="tag">Цель 10.5.1.8</span> <span class="src">Шаметов, §72, № 11167</span></p>
+  <h3>Вычислите предел</h3>
+  <div class="equation">\[\lim_{x\to-\infty}\frac{x^2-1}{x^2+x+1}\]</div>
+  <p><b>Как распознать:</b> \(x\to\infty\) и дробь из многочленов — сравни старшие степени.</p>
+  <details><summary>Решение</summary>
+    <p>Делим числитель и знаменатель на \(x^2\):</p>
+    <div class="equation">\[\lim_{x\to-\infty}\frac{1-\frac{1}{x^2}}{1+\frac1x+\frac{1}{x^2}}=\frac{1-0}{1+0+0}=1.\]</div>
+    <p><b>Ответ:</b> \(1\).</p>
+  </details>
+</article>
+
+<article class="card example">
+  <p class="task-meta"><span class="tag">Поворот 5 · Корень и знак</span> <span class="tag">Цель 10.5.1.8</span> <span class="src">Шаметов, §72, № 11169</span></p>
+  <h3>Вычислите предел</h3>
+  <div class="equation">\[\lim_{x\to-\infty}\frac{x-1}{\sqrt{x^2+3}}\]</div>
+  <p><b>Ловушка:</b> при \(x<0\) имеем \(\sqrt{x^2}=|x|=-x\), а не \(x\).</p>
+  <details><summary>Решение</summary>
+    <div class="equation">\[\sqrt{x^2+3}=|x|\sqrt{1+\tfrac{3}{x^2}}=-x\sqrt{1+\tfrac{3}{x^2}}\quad(x<0).\]</div>
+    <div class="equation">\[\lim_{x\to-\infty}\frac{x\left(1-\frac1x\right)}{-x\sqrt{1+\frac{3}{x^2}}}=\frac{1}{-1}=-1.\]</div>
+    <p><b>Ответ:</b> \(-1\).</p>
+  </details>
+</article>
+
+<article class="card example">
+  <p class="task-meta"><span class="tag">Поворот 6 · ∞ − ∞, сопряжённое</span> <span class="tag">Цель 10.5.1.8</span> <span class="src">Шаметов, §72, № 11214</span></p>
+  <h3>Вычислите предел</h3>
+  <div class="equation">\[\lim_{n\to\infty}\left(\sqrt{9n^2+5n+4}-3n\right)\]</div>
+  <p><b>Как распознать:</b> разность двух бесконечно больших с корнем — умножаем на сопряжённое.</p>
+  <details><summary>Решение</summary>
+    <div class="equation">\[\sqrt{9n^2+5n+4}-3n=\frac{(9n^2+5n+4)-9n^2}{\sqrt{9n^2+5n+4}+3n}=\frac{5n+4}{\sqrt{9n^2+5n+4}+3n}.\]</div>
+    <p>Делим на \(n\):</p>
+    <div class="equation">\[\lim_{n\to\infty}\frac{5+\frac4n}{\sqrt{9+\frac5n+\frac{4}{n^2}}+3}=\frac{5}{3+3}=\frac56.\]</div>
+    <p><b>Ответ:</b> \(\frac56\).</p>
+  </details>
+</article>
+
+<article class="card example">
+  <p class="task-meta"><span class="tag">Поворот 7 · Первый замечательный</span> <span class="tag">Цель 10.5.1.9</span> <span class="src">Шаметов, §72, № 11200 г)</span></p>
+  <h3>Вычислите предел</h3>
+  <div class="equation">\[\lim_{x\to0}\frac{\operatorname{tg}4{,}5x}{7{,}5x}\]</div>
+  <p><b>Как распознать:</b> \(x\to0\), а в выражении есть \(\sin\) или \(\operatorname{tg}\) — подгоняем под \(\frac{\sin t}{t}\).</p>
+  <details><summary>Решение</summary>
+    <p>Так как \(\frac{\operatorname{tg}t}{t}=\frac{\sin t}{t}\cdot\frac{1}{\cos t}\to1\) при \(t\to0\):</p>
+    <div class="equation">\[\lim_{x\to0}\frac{\operatorname{tg}4{,}5x}{7{,}5x}=\frac{4{,}5}{7{,}5}\cdot\lim_{x\to0}\frac{\operatorname{tg}4{,}5x}{4{,}5x}=\frac{4{,}5}{7{,}5}\cdot1=\frac35.\]</div>
+    <p><b>Ответ:</b> \(\frac35\).</p>
+  </details>
+</article>
+
+<article class="card example">
+  <p class="task-meta"><span class="tag">Поворот 8 · Односторонние пределы</span> <span class="tag">Цель 10.5.1.10</span> <span class="src">Шаметов, §75.5, функция № 11835</span></p>
+  <h3>Найдите левый и правый пределы функции \(y=2^{\frac1x}\) в точке \(x=0\). Существует ли \(\lim\limits_{x\to0}2^{\frac1x}\)?</h3>
+  <details><summary>Решение</summary>
+    <p>Слева \(x<0\), поэтому \(\frac1x\to-\infty\); справа \(x>0\), поэтому \(\frac1x\to+\infty\):</p>
+    <div class="equation">\[\lim_{x\to0-0}2^{\frac1x}=0,\qquad \lim_{x\to0+0}2^{\frac1x}=+\infty.\]</div>
+    <p>Односторонние пределы различны, значит, \(\lim\limits_{x\to0}2^{\frac1x}\) <b>не существует</b>. В точке \(x=0\) разрыв второго рода.</p>
+  </details>
+</article>
+
+<article class="card example">
+  <p class="task-meta"><span class="tag">Поворот 9 · Непрерывность</span> <span class="tag">Цели 10.5.1.8, 10.5.1.10</span> <span class="src">Шаметов, §72, функция № 11174</span></p>
+  <h3>Исследуйте на непрерывность функцию</h3>
+  <div class="equation">\[f(x)=\frac{2x^2-7x+6}{x^2-5x+6}\]</div>
+  <details><summary>Решение</summary>
+    <p>Знаменатель \(x^2-5x+6=(x-2)(x-3)\) равен нулю при \(x=2\) и \(x=3\); в остальных точках функция непрерывна.</p>
+    <div class="equation">\[f(x)=\frac{(x-2)(2x-3)}{(x-2)(x-3)}=\frac{2x-3}{x-3},\quad x\ne2.\]</div>
+    <p><b>\(x=2\):</b> \(\lim\limits_{x\to2}f(x)=\frac{1}{-1}=-1\) — конечный предел, разрыв <b>устранимый</b> (достаточно положить \(f(2)=-1\)).</p>
+    <p><b>\(x=3\):</b> числитель \(\to3\), а знаменатель \(x-3\) меняет знак:</p>
+    <div class="equation">\[\lim_{x\to3-0}f(x)=-\infty,\qquad \lim_{x\to3+0}f(x)=+\infty\]</div>
+    <p>— разрыв второго рода, прямая \(x=3\) — вертикальная асимптота.</p>
+  </details>
+</article>
+
+<article class="card example">
+  <p class="task-meta"><span class="tag">Поворот 10 · Асимптоты</span> <span class="tag">Цель 10.5.1.11</span> <span class="src">Шаметов, §75.5, функция № 11837</span></p>
+  <h3>Найдите асимптоты графика функции</h3>
+  <div class="equation">\[y=\frac{x^2-4}{x+1}\]</div>
+  <details><summary>Решение</summary>
+    <p><b>Вертикальная.</b> Знаменатель равен нулю при \(x=-1\), числитель там равен \(-3\ne0\):</p>
+    <div class="equation">\[\lim_{x\to-1-0}\frac{x^2-4}{x+1}=+\infty,\qquad \lim_{x\to-1+0}\frac{x^2-4}{x+1}=-\infty.\]</div>
+    <p>Значит, \(x=-1\) — вертикальная асимптота.</p>
+    <p><b>Наклонная \(y=kx+b\):</b></p>
+    <div class="equation">\[k=\lim_{x\to\infty}\frac{x^2-4}{x(x+1)}=1,\qquad b=\lim_{x\to\infty}\left(\frac{x^2-4}{x+1}-x\right)=\lim_{x\to\infty}\frac{-x-4}{x+1}=-1.\]</div>
+    <p><b>Горизонтальной нет</b>, так как \(\lim\limits_{x\to\infty}y=\infty\).</p>
+    <p><b>Ответ:</b> \(x=-1\) и \(y=x-1\).</p>
+  </details>
+</article>
+
+<article class="card example">
+  <p class="task-meta"><span class="tag">Поворот 11 · Асимптоты</span> <span class="tag">Цель 10.5.1.11</span> <span class="src">Шаметов, §75.5, функция № 11838</span></p>
+  <h3>Найдите асимптоты графика функции</h3>
+  <div class="equation">\[y=\frac{x^2}{x^2-1}\]</div>
+  <details><summary>Решение</summary>
+    <p><b>Вертикальные:</b> \(x^2-1=0\Rightarrow x=\pm1\), числитель там равен \(1\ne0\), поэтому \(x=-1\) и \(x=1\) — вертикальные асимптоты.</p>
+    <p><b>Горизонтальная:</b></p>
+    <div class="equation">\[\lim_{x\to\pm\infty}\frac{x^2}{x^2-1}=\lim_{x\to\pm\infty}\frac{1}{1-\frac{1}{x^2}}=1\ \Rightarrow\ y=1.\]</div>
+    <p>Если есть горизонтальная асимптота, наклонной при \(x\to\pm\infty\) нет.</p>
+    <p><b>Ответ:</b> \(x=\pm1\), \(y=1\).</p>
+  </details>
+</article>
+
+</section>
+<section class="cta"><a class="button primary" href="trainer.html">Закрепить в тренажере</a><a class="button" href="sheet.html">Открыть шпаргалку</a></section>
+</main>
+<footer>Сначала распознай тип задачи, потом выбирай приём.</footer>
+</body>
+</html>

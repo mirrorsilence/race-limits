@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Теория · Пределы</title><link rel="stylesheet" href="style.css">
+  <script>
+    window.MathJax = {
+      tex: {inlineMath: [['\\(', '\\)'], ['$', '$']], displayMath: [['\\[', '\\]']]},
+      svg: {fontCache: 'global'}
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body><header class="topbar"><a class="brand" href="index.html"><span class="badge">RACE</span> Пределы</a><nav><a href="index.html">Старт</a><a href="theory.html" aria-current="page">Теория</a><a href="examples.html">Эталонные задачи</a><a href="trainer.html">Тренажер</a><a href="sheet.html">Шпаргалка</a></nav></header>
+<main>
+<section><p class="eyebrow">Стартовая прямая</p><h1>Что такое предел функции?</h1>
+<div class="formula-card definition">
+  <h2>Официальное математическое определение</h2>
+  <p>Число \(A\) называется пределом функции \(f(x)\) при \(x\to a\), если для любого числа \(\varepsilon>0\) найдётся число \(\delta>0\) такое, что из условия \(0<|x-a|<\delta\) следует \(|f(x)-A|<\varepsilon\).</p>
+  <div class="equation">\[\lim_{x\to a}f(x)=A\]</div>
+</div>
+<div class="card"><h2>Простыми словами</h2>
+  <p>Мы смотрим не на саму точку \(x=a\), а на значения функции рядом с ней. Если слева и справа график подъезжает к одному и тому же числу \(A\), то предел равен \(A\).</p>
+  <p class="warn">Важно: значение функции в точке может быть другим. Предел смотрит на поведение около точки, а не обязательно в самой точке.</p>
+</div></section>
+
+<section class="grid2"><div><h2>Поиграй с проколотой точкой</h2>
+  <p>На рисунке функция почти равна прямой \(y=x+1\), но в точке \(x=2\) значение специально поставлено другим: \(f(2)=1\). Двигай ползунок и смотри, к чему стремится график.</p>
+  <label class="slider">\(x\) = <output id="hole-x">1.80</output><input id="hole-slider" type="range" min="100" max="300" value="180"></label>
+  <p id="hole-text" class="result"></p>
+</div><canvas id="hole-canvas" class="bigcanvas" aria-label="Интерактивный график предела"></canvas></section>
+
+<section><h2>Как считать предел</h2>
+<div class="cards">
+  <article class="card"><h3>1. Подставь</h3><p>Если получилось число, это и есть ответ: \(\lim\limits_{x\to a}f(x)=f(a)\) для непрерывной функции.</p><p class="src">№ 11153–11161</p></article>
+  <article class="card"><h3>2. \(\frac{0}{0}\) → разложи</h3><p>Найди общий множитель \(x-a\) и сократи. Помогают \(a(x-x_1)(x-x_2)\), \(a^2-b^2\), \(a^3\pm b^3\).</p><p class="src">№ 11163–11195</p></article>
+  <article class="card"><h3>3. \(\frac{\infty}{\infty}\) → старшая степень</h3><p>Раздели числитель и знаменатель на старшую степень \(x\) (или \(n\)).</p><p class="src">№ 11166–11169, 11201–11212</p></article>
+  <article class="card"><h3>4. \(\infty-\infty\) с корнем</h3><p>Умножь и раздели на сопряжённое: \(\sqrt A-\sqrt B=\frac{A-B}{\sqrt A+\sqrt B}\).</p><p class="src">№ 11213, 11214</p></article>
+  <article class="card"><h3>5. \(\sin\) или \(\operatorname{tg}\) при \(x\to0\)</h3><p>Используй первый замечательный предел.</p><p class="src">№ 11196–11200</p></article>
+</div></section>
+
+<section><h2>Первый замечательный предел</h2>
+<div class="formula-card definition">
+  <div class="equation big">\[\lim_{x\to0}\frac{\sin x}{x}=1\]</div>
+  <p>Подставить \(x=0\) нельзя: получится \(\frac{0}{0}\). Посмотрим на график и разберёмся, почему ответ равен 1.</p>
+</div>
+<div class="grid2 explain">
+  <div>
+    <h3>1. График \(y=\frac{\sin x}{x}\)</h3>
+    <p>Синяя линия — функция \(y=\frac{\sin x}{x}\). В точке \(x=0\) она <b>не определена</b>: на графике там выколотая точка. Но слева и справа график подъезжает к высоте \(1\).</p>
+    <label class="slider">\(x\) = <output id="rem-x">1.50</output><input id="rem-slider" type="range" min="-300" max="300" value="150"></label>
+    <p id="rem-text" class="result"></p>
+  </div>
+  <canvas id="rem-canvas" class="bigcanvas" aria-label="График sin x / x"></canvas>
+</div>
+<div class="grid2 explain">
+  <div>
+    <h3>2. Почему так: возле нуля \(\sin x\approx x\)</h3>
+    <p>Красная кривая — \(y=\sin x\), серая пунктирная прямая — \(y=x\). Чем ближе к нулю, тем сильнее они сливаются: синус почти равен самому \(x\). Поэтому их отношение почти равно 1.</p>
+    <table class="values">
+      <tr><th>\(x\)</th><th>\(\sin x\)</th><th>\(\frac{\sin x}{x}\)</th></tr>
+      <tr><td>1</td><td>0,8415</td><td>0,8415</td></tr>
+      <tr><td>0,5</td><td>0,4794</td><td>0,9589</td></tr>
+      <tr><td>0,1</td><td>0,09983</td><td>0,9983</td></tr>
+      <tr><td>0,01</td><td>0,0099998</td><td>0,99998</td></tr>
+    </table>
+  </div>
+  <canvas id="sinx-canvas" class="bigcanvas" aria-label="Графики sin x и x около нуля"></canvas>
+</div>
+<div class="grid2 explain">
+  <div>
+    <h3>3. Доказательство на единичной окружности</h3>
+    <p>Пусть \(0\lt x\lt\frac{\pi}{2}\) — угол в радианах. На рисунке: красный отрезок — \(\sin x\), синяя дуга имеет длину \(x\), зелёный отрезок — \(\operatorname{tg}x\). Сравним площади треугольника, сектора и большого треугольника:</p>
+    <div class="equation">\[\frac12\sin x\lt\frac12x\lt\frac12\operatorname{tg}x\]</div><p>Делим на \(\frac12\sin x>0\) и переворачиваем дроби:</p><div class="equation">\[\cos x\lt\frac{\sin x}{x}\lt1.\]</div>
+    <p>При \(x\to0\) левая часть \(\cos x\to1\), правая равна 1. Дробь зажата между ними, значит, тоже стремится к 1 («правило двух милиционеров»).</p>
+    <p class="src">Угол меняется тем же ползунком, что и в п. 1.</p>
+  </div>
+  <canvas id="circle-canvas" class="bigcanvas" aria-label="Единичная окружность"></canvas>
+</div>
+<div class="card">
+  <h3>Как применять</h3>
+  <div class="equation">\[\lim_{x\to0}\frac{\sin kx}{mx}=\frac{k}{m}\]</div><div class="equation">\[\lim_{x\to0}\frac{\operatorname{tg}x}{x}=1\]</div><div class="equation">\[\lim_{x\to0}\frac{\operatorname{tg}kx}{mx}=\frac{k}{m}\]</div>
+  <p class="warn">Аргумент синуса и знаменатель должны совпадать: \(\frac{\sin 2x}{x}=2\cdot\frac{\sin 2x}{2x}\to2\) (№ 11196).</p>
+</div>
+</section>
+
+<section><h2>Односторонние пределы</h2><div class="cards">
+  <article class="card"><h3>Левый предел</h3><div class="equation">\[\lim_{x\to a-0}f(x)\]</div><p>\(x\) подходит к \(a\) слева (\(x\lt a\)). Иногда пишут \(x\to a^-\).</p></article>
+  <article class="card"><h3>Правый предел</h3><div class="equation">\[\lim_{x\to a+0}f(x)\]</div><p>\(x\) подходит к \(a\) справа (\(x\gt a\)). Иногда пишут \(x\to a^+\).</p></article>
+  <article class="card"><h3>Когда общий предел существует?</h3><div class="equation">\[\lim_{x\to a-0}f(x)=\lim_{x\to a+0}f(x)\]</div><p>Если левый и правый пределы равны.</p></article>
+</div>
+<p class="warn">Если знаменатель стремится к нулю, а числитель — к числу \(c\ne0\), определи знак знаменателя слева и справа: получится \(+\infty\) или \(-\infty\).</p>
+</section>
+
+<section><h2>Непрерывность</h2>
+<div class="formula-card definition">
+  <p>Функция \(f\) непрерывна в точке \(a\), если</p>
+  <div class="equation">\[\lim_{x\to a-0}f(x)=\lim_{x\to a+0}f(x)=f(a).\]</div>
+  <div class="cards">
+    <article class="card"><h3>Устранимый разрыв</h3><p>Предел конечен, но \(f(a)\) не определено или не равно пределу. Пример: \(\frac{x^2-4}{x-2}\) в точке 2 (№ 11156).</p></article>
+    <article class="card"><h3>Разрыв I рода (скачок)</h3><p>Левый и правый пределы конечны, но различны.</p></article>
+    <article class="card"><h3>Разрыв II рода</h3><p>Хотя бы один односторонний предел бесконечен или не существует. Пример: \(2^{\frac1x}\) в точке 0 (№ 11835).</p></article>
+  </div>
+</div></section>
+
+<section><h2>Асимптоты графика</h2>
+<div class="formula-card definition">
+  <p><b>Асимптота</b> — это прямая, к которой график неограниченно приближается, когда точка графика уходит в бесконечность. Расстояние от точки графика до асимптоты стремится к нулю.</p>
+  <p>Представь гоночную машину на очень длинной трассе: она всё ближе и ближе к разделительной линии, но так её и не пересекает (или пересекает лишь несколько раз).</p>
+</div>
+<div class="cards">
+  <article class="card"><h3>Вертикальная \(x=a\)</h3><div class="equation">\[\lim_{x\to a\pm0}f(x)=\pm\infty\]</div><p>График «улетает» вверх или вниз возле \(x=a\). Ищи среди нулей знаменателя.</p></article>
+  <article class="card"><h3>Горизонтальная \(y=b\)</h3><div class="equation">\[b=\lim_{x\to\pm\infty}f(x)\]</div><p>Далеко слева или справа график выравнивается на высоте \(b\).</p></article>
+  <article class="card"><h3>Наклонная \(y=kx+b\)</h3><div class="equation">\[k=\lim_{x\to\infty}\frac{f(x)}{x}\]</div><div class="equation">\[b=\lim_{x\to\infty}\bigl(f(x)-kx\bigr)\]</div><p>Далеко график идёт почти по наклонной прямой.</p></article>
+</div>
+<h3 class="asy-title">Посмотри на графиках функций из сборника Шаметова (§75.5)</h3>
+<div class="asy-buttons" id="asy-buttons"></div>
+<div class="grid2 explain">
+  <div>
+    <div id="asy-explain" class="card asy-explain"></div>
+    <label class="slider">Двигай точку по графику: \(x\) = <output id="asy-x">3.00</output><input id="asy-slider" type="range" min="-1000" max="1000" value="300"></label>
+    <p id="asy-text" class="result"></p>
+  </div>
+  <canvas id="asy-canvas" class="bigcanvas tall" aria-label="График функции и её асимптоты"></canvas>
+</div>
+<p class="src">Синяя линия — график, красные пунктиры — асимптоты.</p>
+<p>Полный разбор задач смотри в <a href="examples.html">эталонных задачах</a>.</p>
+</section>
+</main><footer>Предел \(\ne\) значение в точке: смотри, куда едет график.</footer></body></html>
